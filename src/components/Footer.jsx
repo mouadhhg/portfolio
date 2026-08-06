@@ -40,7 +40,7 @@ export default function Footer() {
             </a>
             <li className="flex gap-4 mt-4">
               <a href="https://www.instagram.com/sharp_edge_studio.dev?igsh=MTR4cGM1dmp1dXllMA==" className="hover:text-blue-500 transition">Instagram</a>
-              <a href="https://wa.me/21290231048" className="hover:text-blue-500 transition">WhatsApp</a>
+              <a href="https://wa.me/212690231048" className="hover:text-blue-500 transition">WhatsApp</a>
               <a href="https://www.tiktok.com/@sharpedgestudio?_r=1&_d=em96i73j02j4bi&sec_uid=MS4wLjABAAAA4Nc6Zp7aC-_E0YNNdGA_zrnwcr0AkXT061SqF1F6kKMSkkAiOBpjiLuRITAgMpNj&share_author_id=7667998371017786376&sharer_language=en&source=h5_m&u_code=f4khik3845lff3&timestamp=1785442492&user_id=7667998371017786376&sec_user_id=MS4wLjABAAAA4Nc6Zp7aC-_E0YNNdGA_zrnwcr0AkXT061SqF1F6kKMSkkAiOBpjiLuRITAgMpNj&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7668225254511347474&share_link_id=e5e3006c-18b4-4e25-aaf0-8781ddfc307c&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb4907&social_share_type=5&share_enter_from=settings_page&item_author_type=1&enable_checksum=1" className="hover:text-blue-500 transition">Tiktok</a>
             </li>
           </ul>
