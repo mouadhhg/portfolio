@@ -35,7 +35,9 @@ export default function Footer() {
           <h3 className="text-xl font-semibold mb-6">Connect</h3>
           <ul className="space-y-4 text-gray-400">
             <li>Agadir, Morocco</li>
-            <li>contact@zaafanedigital.com</li>
+            <a href="mailto:Sharpedgestudio.dev@gmail.com" className="hover:underline">
+              Sharpedgestudio.dev@gmail.com
+            </a>
             <li className="flex gap-4 mt-4">
               <a href="https://www.instagram.com/sharp_edge_studio.dev?igsh=MTR4cGM1dmp1dXllMA==" className="hover:text-blue-500 transition">Instagram</a>
               <a href="https://wa.me/21290231048" className="hover:text-blue-500 transition">WhatsApp</a>
