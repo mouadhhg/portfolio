@@ -1,30 +1,38 @@
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Contact() {
-  const form = useRef();
+  const [status, setStatus] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const sendEmail = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setStatus('');
 
-    // استبدل القيم هنا ببياناتك من EmailJS
-    emailjs
-      .sendForm(
-        'service_fcv2sgz', 
-        'template_qyapksu', 
-        form.current, 
-        'hltwAn6VLCOmLPcxN'
-      )
-      .then(
-        () => {
-          alert('Message sent successfully!');
-          form.current.reset();
-        },
-        (error) => {
-          alert('Failed to send: ' + error.text);
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/meaogooy", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
         }
-      );
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        form.reset();
+      } else {
+        setStatus('Oops! There was a problem submitting your form.');
+      }
+    } catch (error) {
+      setStatus('Oops! There was a problem submitting your form.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -54,15 +62,14 @@ export default function Contact() {
               </p>
             </div>
             <div className="space-y-4">
-              <p className="text-gray-900 font-medium">📧 contact@zaafanedigital.com</p>
-              <p className="text-gray-900 font-medium">📍 Agadir, Morocco</p>
+              <p className="text-gray-900 font-medium">📧 sharpcode.ma@gmail.com</p>
+              <p className="text-gray-900 font-medium">📍 Morocco</p>
             </div>
           </motion.div>
 
-          {/* Right: Form - تم إضافة ref و onSubmit و name لكل input */}
+          {/* Right: Form */}
           <motion.form 
-            ref={form} 
-            onSubmit={sendEmail}
+            onSubmit={handleSubmit}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -73,11 +80,22 @@ export default function Contact() {
               <input name="name" type="text" placeholder="Name" required className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
               <input name="email" type="email" placeholder="Email" required className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
-            <input name="title" type="text" placeholder="Subject" required className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <input name="subject" type="text" placeholder="Subject" required className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
             <textarea name="message" placeholder="Your Message" rows="4" required className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-            <button type="submit" className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-300">
-              Send Message
+            
+            <button 
+              type="submit" 
+              disabled={loading}
+              className="w-full py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition duration-300 disabled:opacity-50"
+            >
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
+
+            {status && (
+              <p className={`text-center font-medium ${status.includes('success') ? 'text-green-600' : 'text-red-600'}`}>
+                {status}
+              </p>
+            )}
           </motion.form>
 
         </div>
