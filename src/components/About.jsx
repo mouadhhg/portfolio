@@ -56,7 +56,7 @@ export default function About() {
                 Crafting Digital <span className="text-blue-600">Excellence</span>
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                At SHARP EDGE STUDIO, we don't just build websites; we create high-performance digital experiences. 
+                At SHARP CODE, we don't just build websites; we create high-performance digital experiences. 
                 We specialize in turning complex ideas into clean, efficient, and beautiful web solutions.
               </p>
               <ul className="space-y-4">

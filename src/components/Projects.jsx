@@ -1,10 +1,26 @@
 import { motion } from 'framer-motion';
+import bijouterieImg from '../assets/bijouterie.png';
 
 export default function Projects() {
   const projectList = [
-    { title: "E-commerce App", desc: "Built with React, Node.js, and Stripe.", img: "https://picsum.photos/seed/1/400/250" },
-    { title: "Task Manager", desc: "A robust Kanban board for team productivity.", img: "https://picsum.photos/seed/2/400/250" },
-    { title: "Weather Dashboard", desc: "Real-time weather tracking using OpenWeather API.", img: "https://picsum.photos/seed/3/400/250" },
+    { 
+      title: "Bijouterie 925", 
+      desc: "A modern, elegant e-commerce platform for luxury jewelry, built with a seamless shopping experience.", 
+      img: bijouterieImg,
+      link: "https://bijouterie-925.vercel.app" 
+    },
+    { 
+      title: "Task Manager", 
+      desc: "A robust Kanban board for team productivity.", 
+      img: "https://picsum.photos/seed/2/400/250",
+      link: "#" 
+    },
+    { 
+      title: "Weather Dashboard", 
+      desc: "Real-time weather tracking using OpenWeather API.", 
+      img: "https://picsum.photos/seed/3/400/250",
+      link: "#" 
+    },
   ];
 
   // إعدادات الأنيميشن المتتابع
@@ -12,7 +28,7 @@ export default function Projects() {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 } // تأخير 0.2 ثانية بين كل بطاقة
+      transition: { staggerChildren: 0.2 }
     }
   };
 
@@ -43,19 +59,28 @@ export default function Projects() {
             <motion.div 
               key={i} 
               variants={item}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="overflow-hidden">
-                <img 
-                  src={p.img} 
-                  alt={p.title} 
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
-                />
+              <div>
+                <div className="overflow-hidden">
+                  <img 
+                    src={p.img} 
+                    alt={p.title} 
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{p.title}</h3>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{p.desc}</p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{p.title}</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{p.desc}</p>
-                <a href="#" className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition">
+              <div className="px-6 pb-6">
+                <a 
+                  href={p.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition"
+                >
                   View Project <span className="ml-2">→</span>
                 </a>
               </div>
