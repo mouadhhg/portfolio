@@ -37,7 +37,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 p-6 max-w-4xl">
         <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-          Welcome to <span className="text-blue-500">SHARP EDGE STUDIO</span>
+          Welcome to <span className="text-blue-500">SHARP CODE</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed">
           We craft premium digital experiences and high-end solutions tailored to elevate your business. 
