@@ -62,7 +62,7 @@ export default function Contact() {
               </p>
             </div>
             <div className="space-y-4">
-              <p className="text-gray-900 font-medium">📧 sharpcode.ma@gmail.com</p>
+              <p className="text-gray-900 font-medium">📧 dev@sharpcode.ma</p>
               <p className="text-gray-900 font-medium">📍 Morocco</p>
             </div>
           </motion.div>
